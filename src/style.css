@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+body {
+  font-family: 'Manrope', sans-serif;
+  color: #FFFFFF;
+  background-image: url('.//assets/images/background.webp');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center top; /* Rasm tepadan boshlanishi uchun top qildik */
+  background-repeat: no-repeat;
+  background-color: #0b1319; /* Rasm rangiga mos to'q fon */
+  min-height: 100vh;
+  margin: 0;
+}

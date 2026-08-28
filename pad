@@ -1,0 +1,91 @@
+<div class="w-full h-80 bg-[conic-gradient(at_center,#000_0deg_78deg,#fff_92deg_108deg,#000_122deg_258deg,#fff_272deg_288deg,#000_302deg_360deg)] rounded-3xl p-[10px]">
+  <!-- Kontent shu yerda bo'ladi -->
+</div>
+
+gradiyent 100%
+
+<div 
+  class="w-[300px] h-80 rounded-3xl p-[10px] bg-[#555555]"
+  style="background: 
+    radial-gradient(circle at 0% 0%, #000000 0%, transparent 70%),
+    radial-gradient(circle at 100% 0%, #ffffff 0%, transparent 70%),
+    radial-gradient(circle at 0% 100%, #ffffff 0%, transparent 70%),
+    radial-gradient(circle at 100% 100%, #000000 0%, transparent 70%);"
+>
+
+gradiyent 300px
+
+
+ <div
+          class="w-[119px] rounded-full p-[2px]"
+          style="
+            background:
+              radial-gradient(
+                ellipse at 15% 0%,
+                rgba(255, 255, 255, 0.6) 0%,
+                transparent 40%
+              ),
+              /* Chap-tepa: o'ngga cho'zilgan */
+              radial-gradient(
+                  ellipse at 100% 15%,
+                  rgba(255, 255, 255, 0.2) 0%,
+                  transparent 5%
+                ),
+              /* O'ng-tepa */
+              radial-gradient(
+                  ellipse at 0% 85%,
+                  rgba(255, 255, 255, 0.2) 0%,
+                  transparent 5%
+                ),
+              /* Chap-past */
+              radial-gradient(
+                  ellipse at 85% 100%,
+                  rgba(255, 255, 255, 0.4) 0%,
+                  transparent 40%
+                ),
+              /* O'ng-past */ #0e171e; /* Fon rangingiz */
+          "
+        >
+          <div class="lang-dropdown relative">
+            <button
+              @click="isOpen = !isOpen"
+              class="w-full flex items-center justify-between bg-[#0E171E] font-500 hover:bg-[#14202A] py-[14px] pl-[24px] pr-[20px] rounded-full text-[16px] font-medium transition cursor-pointer select-none"
+            >
+              <span>{{ currentLang }}</span>
+              <img
+                src="../assets/images/icons/arrow-down.webp"
+                alt="Arrow"
+                class="w-3 h-3 opacity-70 transition-transform duration-200"
+                :class="{ 'rotate-180': isOpen }"
+              />
+            </button>
+
+            <transition
+              enter-active-class="transition duration-100 ease-out"
+              enter-from-class="transform scale-95 opacity-0"
+              enter-to-class="transform scale-100 opacity-100"
+              leave-active-class="transition duration-75 ease-in"
+              leave-from-class="transform scale-100 opacity-100"
+              leave-to-class="transform scale-95 opacity-0"
+            >
+              <div
+                v-if="isOpen"
+                class="absolute right-0 mt-2 w-36 bg-[#0E171E] border border-white/10 rounded-2xl p-1.5 shadow-2xl z-50 backdrop-blur-xl"
+              >
+                <button
+                  v-for="lang in languages"
+                  :key="lang"
+                  @click="changeLanguage(lang)"
+                  class="w-full text-left px-4 py-2 rounded-xl text-sm transition cursor-pointer"
+                  :class="
+                    currentLang === lang
+                      ? 'bg-gradient-to-r from-[#62ECC4]/20 to-[#2FD398]/10 text-[#62ECC4] font-medium'
+                      : 'text-white/70 hover:bg-white/5 hover:text-white'
+                  "
+                >
+                  {{ lang }}
+                </button>
+              </div>
+            </transition>
+          </div>
+        </div>
