@@ -43,7 +43,7 @@
         >
           <li class="h-[40px] flex items-center flex-1 max-w-[100px]">
             <a
-              href="#"
+              href="#app"
               class="w-full h-full flex items-center justify-center bg-gradient-to-b from-[#142C28] to-[#0A1614] border border-[#1E463F]/50 text-white rounded-full text-[14px] lg:text-[16px] font-semibold shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition-all duration-200 select-none"
             >
               Home
@@ -51,21 +51,21 @@
           </li>
           <li class="flex-1 text-center">
             <a
-              href="#"
+              href="#program"
               class="text-white/60 hover:text-white text-[12px] leading-[140%] lg:text-[16px] font-medium transition-all duration-200 select-none block"
               >Program</a
             >
           </li>
           <li class="flex-1 text-center">
             <a
-              href="#"
+              href="#partners"
               class="text-white/60 hover:text-white text-[12px] leading-[140%] lg:text-[16px] font-medium transition-all duration-200 select-none block"
               >Partners</a
             >
           </li>
           <li class="flex-1 text-center">
             <a
-              href="#"
+              href="#incentives"
               class="text-white/60 hover:text-white text-[12px] leading-[140%] lg:text-[16px] font-medium transition-all duration-200 select-none block"
               >Incentives</a
             >
@@ -103,6 +103,7 @@
         >
           <div class="relative w-full h-full">
             <button
+              type="button"
               @click="isOpen = !isOpen"
               class="w-full h-full flex items-center gap-[4px] md:justify-center text-[#B5B2B1] lg:justify-between bg-[#0E171E] hover:bg-[#14202A] md:pl-[14px] lg:pl-[14px] pr-[16px] rounded-full md:text-[12px] lg:text-[16px] font-medium transition cursor-pointer select-none border-0 outline-none"
             >
@@ -128,6 +129,7 @@
                 class="absolute right-0 mt-2 w-36 bg-[#0E171E] border border-white/10 rounded-2xl p-1.5 shadow-2xl z-50 backdrop-blur-xl"
               >
                 <button
+                  type="button"
                   v-for="lang in languages"
                   :key="lang"
                   @click="changeLanguage(lang)"
@@ -145,7 +147,9 @@
         </div>
 
         <button
+          @click="scrollToRegister"
           class="h-[38px] md:h-[36px] lg:h-[52px] px-[16px] py-[10px] md:px-[12px] md:py-[10px] lg:px-[24px] lg:py-[15px] flex items-center justify-center gap-[10px] text-[#121B26] rounded-full bg-gradient-to-b from-[#84FFC1] to-[#459B6F] font-semibold text-[13px] md:text-[12px] lg:text-[16px] transition-all duration-200 hover:brightness-110 active:scale-98 cursor-pointer select-none border-0 outline-none"
+          type="button"
         >
           Register Now
         </button>
@@ -190,7 +194,7 @@
               <ul class="flex flex-col gap-4 text-center">
                 <li>
                   <a
-                    href="#"
+                    href="#app"
                     @click="isMobileMenuOpen = false"
                     class="block py-2 text-white bg-gradient-to-b from-[#142C28] to-[#0A1614] border border-[#1E463F]/50 rounded-full font-semibold text-[16px]"
                   >
@@ -199,7 +203,7 @@
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#program"
                     @click="isMobileMenuOpen = false"
                     class="block py-2 text-white/70 hover:text-white text-[16px] font-medium transition"
                     >Program</a
@@ -207,7 +211,7 @@
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#partners"
                     @click="isMobileMenuOpen = false"
                     class="block py-2 text-white/70 hover:text-white text-[16px] font-medium transition"
                     >Partners</a
@@ -215,7 +219,7 @@
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#incentives"
                     @click="isMobileMenuOpen = false"
                     class="block py-2 text-white/70 hover:text-white text-[16px] font-medium transition"
                     >Incentives</a
@@ -229,7 +233,8 @@
             <div class="flex flex-col gap-4 items-center">
               <div class="relative w-full max-w-[200px]">
                 <button
-                  @click="isOpen = !isOpen"
+                  type="button"
+                  @click.stop="isOpen = !isOpen"
                   class="w-full h-[48px] flex items-center justify-between bg-[#1A2B2C] text-white px-5 rounded-full text-[16px] font-medium border border-white/10"
                 >
                   <span>{{ currentLang }}</span>
@@ -243,6 +248,7 @@
 
                 <div
                   v-if="isOpen"
+                  @click.stop
                   class="absolute left-0 right-0 mt-2 bg-[#0E171E] border border-white/10 rounded-xl p-1 z-50"
                 >
                   <button
@@ -278,6 +284,11 @@ const isMobileMenuOpen = ref(false);
 const changeLanguage = (lang) => {
   currentLang.value = lang;
   isOpen.value = false;
+};
+
+const scrollToRegister = () => {
+  document.getElementById("register")?.scrollIntoView({ behavior: "smooth" });
+  isMobileMenuOpen.value = false;
 };
 
 const closeDropdown = (e) => {

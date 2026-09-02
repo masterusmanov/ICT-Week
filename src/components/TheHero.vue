@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="py-[32px] px-[16px]  md:px-[32px] md:py-[54px] lg:px-0"
-  >
+  <section class="py-[32px] px-[16px] md:px-[32px] md:py-[54px] lg:px-0">
     <div>
       <h1
         class="w-full lg:w-[944px] mx-auto text-[32px] md:text-[42px] lg:text-[70px] font-[800] md:font-[700] leading-[115%] md:leading-[120%] text-center my-[12px] md:my-[24px] lg:my-[28px]"
@@ -31,10 +29,32 @@
             linear-gradient(to right, #24433d 0%, #152522 50%, #24433d 100%);
         "
       >
+        <button
+          v-if="!videoLoaded"
+          type="button"
+          class="relative w-full h-full border-0 rounded-2xl overflow-hidden cursor-pointer"
+          aria-label="Play ICT Week video"
+          @click="videoLoaded = true"
+        >
+          <img
+            src="https://i.ytimg.com/vi/NPhwTOz7AVw/hqdefault.jpg"
+            alt="ICT Week video preview"
+            class="w-full h-full object-cover"
+            width="640"
+            height="360"
+          />
+          <span
+            class="absolute inset-0 flex items-center justify-center text-white text-[48px]"
+            aria-hidden="true"
+          >
+            &#9654;
+          </span>
+        </button>
         <iframe
+          v-else
           class="w-full h-full border-0 rounded-2xl"
           src="https://www.youtube.com/embed/NPhwTOz7AVw?si=KwnaVPHu90PJz47q"
-          title="YouTube video player"
+          title="ICT Week video"
           allow="
             accelerometer;
             autoplay;
@@ -65,14 +85,24 @@
               class="flex items-center justify-center md:justify-start gap-2 md:gap-4 flex-wrap"
             >
               <button
+                type="button"
+                @click="
+                  document
+                    .getElementById('register')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                "
                 class="p-[12px] flex items-center gap-1 border border-[#62ECC4] text-[#62ECC4] hover:bg-[#62ECC4] hover:text-black font-semibold rounded-[12px] text-[16px] lg:text-[18px]"
               >
                 Register now ↗
               </button>
               <button
+                type="button"
                 class="p-[12px] flex items-center gap-2 border border-[#62ECC4] text-[#62ECC4] hover:bg-[#62ECC4] hover:text-black font-semibold rounded-[12px] text-[16px] lg:text-[18px]"
               >
-                <i class="bx bx-arrow-in-down-square-half text-[24px]" aria-hidden="true" />
+                <i
+                  class="bx bx-arrow-in-down-square-half text-[24px]"
+                  aria-hidden="true"
+                />
                 Full agenda
               </button>
             </div>
@@ -94,12 +124,8 @@
           </div>
         </div>
         <div class="grid grid-cols-3 gap-4 mt-[24px] lg:mt-[32px]">
-          <div
-            class="premium-card-bg rounded-[16px] p-[1px]"
-          >
-            <div
-              class="premium-card-inner"
-            >
+          <div class="premium-card-bg rounded-[16px] p-[1px]">
+            <div class="premium-card-inner">
               <h2
                 class="text-[28px] md:text-[32px] lg:text-[36px] font-[700] leading-[100%]"
               >
@@ -112,12 +138,8 @@
               </p>
             </div>
           </div>
-          <div
-            class="premium-card-bg rounded-[16px] p-[1px]"
-          >
-            <div
-              class="premium-card-inner"
-            >
+          <div class="premium-card-bg rounded-[16px] p-[1px]">
+            <div class="premium-card-inner">
               <h2
                 class="text-[28px] md:text-[32px] lg:text-[36px] font-[700] leading-[100%]"
               >
@@ -130,12 +152,8 @@
               </p>
             </div>
           </div>
-          <div
-            class="premium-card-bg rounded-[16px] p-[1px]"
-          >
-            <div
-              class="premium-card-inner"
-            >
+          <div class="premium-card-bg rounded-[16px] p-[1px]">
+            <div class="premium-card-inner">
               <h2
                 class="text-[28px] md:text-[32px] lg:text-[36px] font-[700] leading-[100%]"
               >
@@ -151,9 +169,11 @@
         </div>
       </div>
     </div>
-    <div class="grid md:grid-cols-4 lg:grid-cols-7 gap-[12px] md:gap-[20px] lg:gap-[26px] md:bg-[#0B1C23]/45 rounded-[24px] md:p-[20px] md:border border-[#3D5960]">
+    <div
+      class="grid md:grid-cols-4 lg:grid-cols-7 gap-[12px] md:gap-[20px] lg:gap-[26px] md:bg-[#0B1C23]/45 rounded-[24px] md:p-[20px] md:border border-[#3D5960]"
+    >
       <img
-        src="../assets/images/icons/medalion.svg"
+        src="../assets/images/icons/medalion.webp"
         alt=""
         class="hidden md:block md:col-span-1 w-full md:w-[108px] md:h-[108px] lg:w-[150px] lg:h-[150px] mx-auto"
       />
@@ -195,31 +215,30 @@
         </div>
       </div>
       <div
-        class="relative md:col-span-2 lg:col-span-2  grid grid-cols-4 md:grid-cols-3 gap-4 border border-[#393D41] rounded-[16px] p-[16px] bg-[#0B1C23]/45"
+        class="relative md:col-span-2 lg:col-span-2 grid grid-cols-4 md:grid-cols-3 gap-4 border border-[#393D41] rounded-[16px] p-[16px] bg-[#0B1C23]/45"
       >
         <p
-  class="hidden md:block absolute top-0 right-0
-         pl-[32px] pr-[10px] py-[1px]
-         flex items-center justify-center
-         bg-[#84FFC1] text-black
-         text-[16px] leading-[140%] font-[800]
-         rounded-bl-[12px] rounded-tr-[12px]"
->
-  {{ currentYear }}
-</p>
+          class="hidden md:block absolute top-0 right-0 pl-[32px] pr-[10px] py-[1px] flex items-center justify-center bg-[#84FFC1] text-black text-[16px] leading-[140%] font-[800] rounded-bl-[12px] rounded-tr-[12px]"
+        >
+          {{ currentYear }}
+        </p>
         <img
-          src="../assets/images/icons/medalion.svg"
+          src="../assets/images/icons/medalion.webp"
           alt=""
           class="py-[27px] md:hidden"
         />
         <div class="grid gap-[12px]">
-          <h2 class="text-[22px] md:text-[28px] font-[700] leading-[110%]">#1</h2>
+          <h2 class="text-[22px] md:text-[28px] font-[700] leading-[110%]">
+            #1
+          </h2>
           <p class="text-[12px] md:text-[14px] leading-[126%]">
             Ecosystem in the World by Growth Rate
           </p>
         </div>
         <div class="grid gap-[12px]">
-          <h2 class="text-[22px] md:text-[28px] font-[700] leading-[110%]">#1</h2>
+          <h2 class="text-[22px] md:text-[28px] font-[700] leading-[110%]">
+            #1
+          </h2>
           <p class="text-[12px] md:text-[14px] leading-[126%]">
             Startup Hub in Central Asia (Tashkent)
           </p>
@@ -241,15 +260,10 @@
         class="relative md:col-span-2 lg:col-span-2 grid grid-cols-3 gap-4 border border-[#393D41] rounded-[16px] p-[16px] bg-[#0B1C23]/45"
       >
         <p
-  class="hidden md:block absolute top-0 right-0
-         pl-[32px] pr-[10px] py-[1px]
-         flex items-center justify-center
-         bg-[#84FFC1] text-black
-         text-[16px] leading-[140%] font-[800]
-         rounded-bl-[12px] rounded-tr-[12px]"
->
-  {{ currentYear }}
-</p>
+          class="hidden md:block absolute top-0 right-0 pl-[32px] pr-[10px] py-[1px] flex items-center justify-center bg-[#84FFC1] text-black text-[16px] leading-[140%] font-[800] rounded-bl-[12px] rounded-tr-[12px]"
+        >
+          {{ currentYear }}
+        </p>
         <div class="grid gap-[32px]">
           <h2
             class="flex items-center gap-[6px] text-[22px] md:text-[28px] font-[700] leading-[110%]"
@@ -257,7 +271,9 @@
             2
             <img src="../assets/images/icons/horse.svg" alt="" />
           </h2>
-          <p class="text-[12px] md:text-[14px] leading-[126%]">Fintech Unicorns</p>
+          <p class="text-[12px] md:text-[14px] leading-[126%]">
+            Fintech Unicorns
+          </p>
         </div>
         <div class="grid gap-[12px]">
           <img src="../assets/images/icons/uzum.svg" alt="" />
@@ -280,6 +296,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 
+const videoLoaded = ref(false);
 const days = ref(0);
 const hours = ref(0);
 const minutes = ref(0);
@@ -321,10 +338,26 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 .premium-card-bg {
   background:
-    radial-gradient(ellipse at 15% 0%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
-    radial-gradient(ellipse at 100% 15%, rgba(255, 255, 255, 0.2) 0%, transparent 0%),
-    radial-gradient(ellipse at 0% 85%, rgba(255, 255, 255, 0.2) 0%, transparent 0%),
-    radial-gradient(ellipse at 85% 100%, rgba(255, 255, 255, 0.4) 0%, transparent 60%),
+    radial-gradient(
+      ellipse at 15% 0%,
+      rgba(255, 255, 255, 0.6) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 100% 15%,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 0%
+    ),
+    radial-gradient(
+      ellipse at 0% 85%,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 0%
+    ),
+    radial-gradient(
+      ellipse at 85% 100%,
+      rgba(255, 255, 255, 0.4) 0%,
+      transparent 60%
+    ),
     #0e171e;
 }
 .premium-card-inner {
@@ -334,6 +367,6 @@ onUnmounted(() => {
   text-align: center;
   display: grid;
   gap: 6px;
-  background: #0A111A;
+  background: #0a111a;
 }
 </style>
