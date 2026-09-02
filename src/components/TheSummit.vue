@@ -97,6 +97,7 @@
             src="../assets/images/summit.webp"
             alt="Summit"
             class="w-full rounded-[16px] lg:hidden"
+            loading="lazy"
           />
           <div class="backimg filter-blur hidden lg:block grid"></div>
         </div>
