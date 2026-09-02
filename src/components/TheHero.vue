@@ -99,10 +99,7 @@
                 type="button"
                 class="p-[12px] flex items-center gap-2 border border-[#62ECC4] text-[#62ECC4] hover:bg-[#62ECC4] hover:text-black font-semibold rounded-[12px] text-[16px] lg:text-[18px]"
               >
-                <i
-                  class="bx bx-arrow-in-down-square-half text-[24px]"
-                  aria-hidden="true"
-                />
+                <Download :size="24" aria-hidden="true" />
                 Full agenda
               </button>
             </div>
@@ -294,6 +291,7 @@
 </template>
 
 <script setup>
+import { Download } from "lucide-vue-next";
 import { ref, onMounted, onUnmounted } from "vue";
 
 const videoLoaded = ref(false);

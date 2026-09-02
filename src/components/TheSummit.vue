@@ -73,19 +73,19 @@
         <div
           class="flex items-center gap-[10px] text-[12px] md:text-[14px] lg:text-[16px] font-[600] leading-[100%] border-r border-[#3D5960]"
         >
-          <i class="bx bx-calendar text-[#84FFC1]" />
+          <CalendarDays class="text-[#84FFC1]" :size="20" aria-hidden="true" />
           <p>October 23, 2023</p>
         </div>
         <div
           class="flex items-center gap-[10px] text-[12px] md:text-[14px] lg:text-[16px] font-[600] leading-[100%] px-4 border-r border-[#3D5960]"
         >
-          <i class="bx bx-clock-4 text-[#84FFC1]" />
+          <Clock3 class="text-[#84FFC1]" :size="20" aria-hidden="true" />
           <p>10-00-12.00</p>
         </div>
         <div
           class="flex items-center gap-[10px] text-[12px] md:text-[14px] lg:text-[16px] font-[600] leading-[100%] px-4"
         >
-          <i class="bx bx-location text-[#84FFC1]" />
+          <MapPin class="text-[#84FFC1]" :size="20" aria-hidden="true" />
           <p>CAEx, Hall 1</p>
         </div>
       </div>
@@ -108,8 +108,10 @@
             jurisdiction built for global technology business.
           </h4>
           <div class="flex items-center gap-[12px] text-[14px] lg:text-[16px]">
-            <i
-              class="bx bx-check bg-[#84FFC1] text-[#121B26] rounded-full"
+            <Check
+              class="shrink-0 bg-[#84FFC1] text-[#121B26] rounded-full"
+              :size="20"
+              aria-hidden="true"
             /><span
               >Running on elements of English and Welsh law, it offers a legal
               environment that locks in the day you enter and remains guaranteed
@@ -118,8 +120,10 @@
             >
           </div>
           <div class="flex items-center gap-[12px] text-[14px] lg:text-[16px]">
-            <i
-              class="bx bx-check bg-[#84FFC1] text-[#121B26] rounded-full"
+            <Check
+              class="shrink-0 bg-[#84FFC1] text-[#121B26] rounded-full"
+              :size="20"
+              aria-hidden="true"
             /><span
               >On September 23, Enterprise Uzbekistan takes the stage at ICT
               Week to open the framework up in person. Meet the people building
@@ -128,8 +132,10 @@
             >
           </div>
           <div class="flex items-center gap-[12px] text-[14px] lg:text-[16px]">
-            <i
-              class="bx bx-check bg-[#84FFC1] text-[#121B26] rounded-full"
+            <Check
+              class="shrink-0 bg-[#84FFC1] text-[#121B26] rounded-full"
+              :size="20"
+              aria-hidden="true"
             /><span
               >Join us at CAEx, Main Hall — come see it before everyone else
               does.</span
@@ -151,6 +157,7 @@
 </template>
 
 <script setup>
+import { CalendarDays, Check, Clock3, MapPin } from "lucide-vue-next";
 import { ref } from "vue";
 
 const navScroll = ref(null);
